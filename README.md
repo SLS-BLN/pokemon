@@ -21,7 +21,6 @@ As a group please consider [mob-programming](https://en.wikipedia.org/wiki/Mob_p
 - Each team member should code at some point
 - Be respectful, kind and considerate to other team members
 
-
 ## Our Plan
 
 List Pokekons with their types
