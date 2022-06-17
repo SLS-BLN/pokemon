@@ -2,14 +2,15 @@ function fetchKantoPokemon() {
   fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     .then(response => response.json())
     .then(function (allpokemon) {
-      console.log(allpokemon);
-      allpokemon.results.forEach(function (pokemon) {
+      allpokemon.results.forEach((pokemon => {
         fetchPokemonData(pokemon);
       });
     });
 }
+// 1. call the function
 fetchKantoPokemon();
 
+// 2. function is called by function fetchKantoPokemon
 function fetchPokemonData(pokemon) {
   let url = pokemon.url;
   fetch(url)
@@ -18,16 +19,17 @@ function fetchPokemonData(pokemon) {
       console.log(pokeData);
       renderPokemon(pokeData);
     });
+    
 }
 function renderPokemon(pokeData) {
-  let allPokemonContainer = document.getElementById('poke-container');
+  const allPokemonContainer = document.querySelector('[data-js:container]');
   console.log(allPokemonContainer);
-  let pokeContainer = document.createElement('div');
-  let pokeName = document.createElement('h4');
+  const pokeContainer = document.createElement('div');
+  const pokeName = document.createElement('h4');
   pokeName.innerText = pokeData.name;
-  let pokeNumber = document.createElement('p');
+  const pokeNumber = document.createElement('p');
   pokeNumber.innerText = `#${pokeData.id}`;
-  let pokeTypes = document.createElement('ul');
+  const pokeTypes = document.createElement('ul');
   createTypes(pokeData.types, pokeTypes);
   pokeContainer.append(pokeName, pokeNumber, pokeTypes);
   allPokemonContainer.appendChild(pokeContainer);
