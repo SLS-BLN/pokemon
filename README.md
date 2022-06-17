@@ -27,4 +27,6 @@ As a group please consider [mob-programming](https://en.wikipedia.org/wiki/Mob_p
 List Pokekons with their types
 
 - name
-- 
+- type
+- exp. 3rd attribute like weight
+- html colored list and numbered li´s
