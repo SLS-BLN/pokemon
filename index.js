@@ -2,7 +2,8 @@ function fetchKantoPokemon() {
   fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     .then(response => response.json())
     .then(function (allpokemon) {
-      allpokemon.results.forEach((pokemon => {
+      console.log(allpokemon);
+      allpokemon.results.forEach(pokemon => {
         fetchPokemonData(pokemon);
       });
     });
@@ -19,10 +20,9 @@ function fetchPokemonData(pokemon) {
       console.log(pokeData);
       renderPokemon(pokeData);
     });
-    
 }
 function renderPokemon(pokeData) {
-  const allPokemonContainer = document.querySelector('[data-js:container]');
+  let allPokemonContainer = document.getElementById('poke-container');
   console.log(allPokemonContainer);
   const pokeContainer = document.createElement('div');
   const pokeName = document.createElement('h4');
@@ -42,3 +42,18 @@ function createTypes(types, ul) {
     ul.append(typeLi);
   });
 }
+
+function createPokeImage(pokeID, containerDiv){
+  let pokeImgContainer = document.createElement('div')
+  pokeImgContainer.classList.add('image')
+
+  let pokeImage = document.createElement('img')
+  pokeImage.src = `./images/svg${pokeID}.svg`
+
+  pokeImgContainer.append(pokeImage);
+  containerDiv.append(pokeImgContainer);
+}
+
+createPokeImage()
+
+console.log(pokeID);
