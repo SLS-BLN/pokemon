@@ -1,7 +1,7 @@
 {
   "name": "api-powered-app-simple-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "This repository is a simple template for the web development students. It is a basic HTML/CSS/JavaScript template without a bundler.",
   "main": "index.js",
   "scripts": {
     "test": "npm run htmlhint && npm run prettier:write && npm run eslint",
