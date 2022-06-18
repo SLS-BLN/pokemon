@@ -4,26 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API Powered App</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <title>API Powered Pokemon App</title>
     <link rel="stylesheet" href="css/styles.css" />
     <script type="text/javascript" src="./index.js" defer></script>
   </head>
   <body>
-    <div id="header-container" class="ui inverted segment" data-js="container">
-      <div class="ui inverted secondary menu">
+    <header class="header" id="header-container" data-js="container">
+      <div>
           <img src="/images/svg/1.svg" alt="">
            <h1 id="header-text">Kanto Pokemon</h1>
         </div>
-    </div>
-    <div id="container">
-        <div id="poke-container" class="ui cards">
-                <!-- will hold the cards for all the pokemon -->
-                <!-- <button id="generate-pokemon" class="ui secondary button">Generate Pokemon</button> -->
+    </header>
+    <main>
+      <div class="container">
+        <div class="poke-container" data-js="poke-container" >
         </div>
-    </div>
-    <!-- <div id="delete-container">
-        <button id="delete-btn" class="ui red button">Delete</button>
-    </div> -->
+      </div>
+    </main>
 </body>
 </html>

@@ -1,7 +1,7 @@
 function fetchKantoPokemon() {
   fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     .then(response => response.json())
-    .then(function (allpokemon) {
+    .then(function (allpokemon) {      
       allpokemon.results.forEach(pokemon => {
         fetchPokemonData(pokemon);
       });
@@ -12,16 +12,18 @@ function fetchKantoPokemon() {
 fetchKantoPokemon();
 
 // 2. function is called by function fetchKantoPokemon
-function fetchPokemonData(pokemon) {
+function fetchPokemonData(pokemon) {  
   const url = pokemon.url;
   fetch(url)
     .then(response => response.json())
     .then(function (pokeData) {
+      console.log(pokeData);
+      
       renderPokemon(pokeData);
     });
 }
 function renderPokemon(pokeData) {
-  const allPokemonContainer = document.getElementById('poke-container');
+  const allPokemonContainer = document.querySelector('[data-js=poke-container]');
   const pokeContainer = document.createElement('article');
   const pokeName = document.createElement('h2');
   pokeName.innerText = pokeData.name;
