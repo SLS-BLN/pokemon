@@ -1,8 +1,8 @@
 function fetchKantoPokemon() {
   fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     .then(response => response.json())
-    .then(function (allpokemon) {      
-      allpokemon.results.forEach(pokemon => {
+    .then( allpokemon => {
+      allpokemon.results.forEach((pokemon, index) => {
         fetchPokemonData(pokemon);
       });
     });
@@ -16,9 +16,8 @@ function fetchPokemonData(pokemon) {
   const url = pokemon.url;
   fetch(url)
     .then(response => response.json())
-    .then(function (pokeData) {
-      console.log(pokeData);
-      
+    .then( pokeData => {
+      // --> insert function to sort objects by index - defined in line 5
       renderPokemon(pokeData);
     });
 }
@@ -26,22 +25,23 @@ function renderPokemon(pokeData) {
   const allPokemonContainer = document.querySelector('[data-js=poke-container]');
   const pokeContainer = document.createElement('article');
   const pokeName = document.createElement('h2');
-  pokeName.innerText = pokeData.name;
   const pokeNumber = document.createElement('p');
-  pokeNumber.innerText = `#${pokeData.id}`;
   const pokeTypes = document.createElement('ul');
+
+  pokeName.innerText = pokeData.name;
+  pokeNumber.innerText = `#${pokeData.id}`;
   createTypes(pokeData.types, pokeTypes);
   pokeContainer.append(pokeName, pokeNumber, pokeTypes);
   allPokemonContainer.appendChild(pokeContainer);
 
   // add images 
   const pokeImgContainer = document.createElement('article')
-  pokeImgContainer.classList.add('image')
   const pokeImage = document.createElement('img')
+  
+  pokeImgContainer.classList.add('image')
   pokeImage.src = `./images/svg/${pokeData.id}.svg`
   pokeImgContainer.append(pokeImage);
   pokeContainer.append(pokeImgContainer);
-
 }
 
 function createTypes(types, ul) {
