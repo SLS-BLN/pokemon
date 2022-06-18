@@ -2,12 +2,12 @@ function fetchKantoPokemon() {
   fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     .then(response => response.json())
     .then(function (allpokemon) {
-      console.log(allpokemon);
       allpokemon.results.forEach(pokemon => {
         fetchPokemonData(pokemon);
       });
     });
 }
+
 // 1. call the function
 fetchKantoPokemon();
 
@@ -17,15 +17,13 @@ function fetchPokemonData(pokemon) {
   fetch(url)
     .then(response => response.json())
     .then(function (pokeData) {
-      console.log(pokeData);
       renderPokemon(pokeData);
     });
 }
 function renderPokemon(pokeData) {
   let allPokemonContainer = document.getElementById('poke-container');
-  console.log(allPokemonContainer);
-  const pokeContainer = document.createElement('div');
-  const pokeName = document.createElement('h4');
+  const pokeContainer = document.createElement('article');
+  const pokeName = document.createElement('h2');
   pokeName.innerText = pokeData.name;
   const pokeNumber = document.createElement('p');
   pokeNumber.innerText = `#${pokeData.id}`;
@@ -33,6 +31,15 @@ function renderPokemon(pokeData) {
   createTypes(pokeData.types, pokeTypes);
   pokeContainer.append(pokeName, pokeNumber, pokeTypes);
   allPokemonContainer.appendChild(pokeContainer);
+
+  // add images 
+  const pokeImgContainer = document.createElement('article')
+  pokeImgContainer.classList.add('image')
+  const pokeImage = document.createElement('img')
+  pokeImage.src = `./images/svg/${pokeData.id}.svg`
+  pokeImgContainer.append(pokeImage);
+  pokeContainer.append(pokeImgContainer);
+
 }
 
 function createTypes(types, ul) {
@@ -42,18 +49,3 @@ function createTypes(types, ul) {
     ul.append(typeLi);
   });
 }
-
-function createPokeImage(pokeID, containerDiv){
-  let pokeImgContainer = document.createElement('div')
-  pokeImgContainer.classList.add('image')
-
-  let pokeImage = document.createElement('img')
-  pokeImage.src = `./images/svg${pokeID}.svg`
-
-  pokeImgContainer.append(pokeImage);
-  containerDiv.append(pokeImgContainer);
-}
-
-createPokeImage()
-
-console.log(pokeID);
