@@ -40,6 +40,7 @@ function renderPokemon(pokeData) {
   
   pokeImgContainer.classList.add('image')
   pokeImage.src = `./images/svg/${pokeData.id}.svg`
+  pokeImage.alt = `Pokémon Nr. ${pokeData.id} - ${pokeData.name.toUpperCase()}`
   pokeImgContainer.append(pokeImage);
   pokeContainer.append(pokeImgContainer);
 }
