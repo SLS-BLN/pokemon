@@ -13,7 +13,7 @@ fetchKantoPokemon();
 
 // 2. function is called by function fetchKantoPokemon
 function fetchPokemonData(pokemon) {
-  let url = pokemon.url;
+  const url = pokemon.url;
   fetch(url)
     .then(response => response.json())
     .then(function (pokeData) {
@@ -21,7 +21,7 @@ function fetchPokemonData(pokemon) {
     });
 }
 function renderPokemon(pokeData) {
-  let allPokemonContainer = document.getElementById('poke-container');
+  const allPokemonContainer = document.getElementById('poke-container');
   const pokeContainer = document.createElement('article');
   const pokeName = document.createElement('h2');
   pokeName.innerText = pokeData.name;
@@ -44,7 +44,7 @@ function renderPokemon(pokeData) {
 
 function createTypes(types, ul) {
   types.forEach(function (type) {
-    let typeLi = document.createElement('li');
+    const typeLi = document.createElement('li');
     typeLi.innerText = type['type']['name'];
     ul.append(typeLi);
   });
