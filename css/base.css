@@ -38,6 +38,11 @@ article {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+ul {
+  padding: 0.5rem 1rem;
+
+}
+
 img {
   height: 8rem;
   width: 8rem;
