@@ -47,7 +47,7 @@ function renderPokemon(pokeData) {
 }
 
 function createTypes(types, ul) {
-  types.forEach(function (type) {
+  types.forEach((type) => {
     const typeLi = document.createElement('li');
     typeLi.innerText = type['type']['name'];
     ul.append(typeLi);
