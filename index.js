@@ -2,19 +2,20 @@ function fetchKantoPokemon() {
   fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
     .then(response => response.json())
     .then( allpokemon => {
+      
       allpokemon.results.forEach((pokemon, index) => {
         fetchPokemonData(pokemon);
       });
     });
-}
-
-// 1. call the function
-fetchKantoPokemon();
-
-// 2. function is called by function fetchKantoPokemon
-function fetchPokemonData(pokemon) {  
-  const url = pokemon.url;
-  fetch(url)
+  }
+  
+  // 1. call the function
+  fetchKantoPokemon();
+  
+  // 2. function is called by function fetchKantoPokemon
+  function fetchPokemonData(pokemon) {  
+    const url = pokemon.url;
+    fetch(url)
     .then(response => response.json())
     .then( pokeData => {
       // --> insert function to sort objects by index - defined in line 5
