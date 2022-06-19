@@ -35,7 +35,7 @@ function renderPokemon(pokeData) {
   allPokemonContainer.appendChild(pokeContainer);
 
   // add images 
-  const pokeImgContainer = document.createElement('article')
+  const pokeImgContainer = document.createElement('div')
   const pokeImage = document.createElement('img')
   
   pokeImgContainer.classList.add('image')
