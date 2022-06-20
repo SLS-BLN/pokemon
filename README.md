@@ -11,9 +11,7 @@ This repository is a simple template for the web development students. It is a b
 
 Together as a group choose one of the following APIs to work with:
 
-1. [Pokemon API](https://pokeapi.co)
-2. [Studio Ghibli API](https://ghibliapi.herokuapp.com/)
-3. [Rick & Morty API](https://rickandmortyapi.com/)
+[Pokemon API](https://pokeapi.co)
 
 The goal of this exercise is to work in a **group** and build a simple app which uses data from an API.
 
@@ -22,3 +20,12 @@ As a group please consider [mob-programming](https://en.wikipedia.org/wiki/Mob_p
 - Change the driver (person who codes) every 20-30 minutes
 - Each team member should code at some point
 - Be respectful, kind and considerate to other team members
+
+## Our Plan
+
+List Pokekons with their types
+
+- name
+- type
+- exp. 3rd attribute like weight
+- html colored list and numbered li´s
